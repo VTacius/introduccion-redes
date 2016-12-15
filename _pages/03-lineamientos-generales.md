@@ -1,1 +1,0 @@
-../_posts/2016-12-14-03-lineamientos-generales.md

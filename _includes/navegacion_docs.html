@@ -1,5 +1,5 @@
 <ul>
-{% assign items = (site.docs | order: 'orden') %}
+{% assign items = (site.docs | sort: 'orden') %}
 {% for document in items %}
     {% assign document_url = document.url %}
     {% if document_url == page.url %}
@@ -17,7 +17,7 @@
         {% else %}
             {% assign next = forloop.index0 | plus: 1 %}
             {% assign next_page = items[next].url | prepend:{{site.baseurl}} | remove: "index.html"%}
-            <a href="{{ next_page }}" class="next">Siguiente: {{items[previous].title}} </a>
+            <a href="{{ next_page }}" class="next">Siguiente: {{items[next].title}} </a>
         {% endif %}
     {% endif %}
 {% endfor %}

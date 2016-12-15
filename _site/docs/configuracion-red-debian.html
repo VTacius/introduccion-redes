@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>Guía de Administrador de Sistemas : Configuración de Red. El caso particular de Debian</title>
+        <meta name="description" content="Guía de integración de conocimientos básicos sobre administración de redes en GNU/Linux">
+
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/syntax.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div id="header" class="col-sm-12">
+                    <h4><a class="brand" href="/">Guía de Administrador de Sistemas</a>
+    <small>Guía de integración de conocimientos básicos sobre administración de redes en GNU/Linux</small>
+</h4>
+
+                </div>
+            </div>
+
+            <div class="row">
+                
+                
+                    <div id="navigation" class="col-sm-2">
+                        <ul class="nav nav-list">
+    <li><a href="/">Home</a></li>
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Documentation</li>
+            
+            <li data-order=""><a href="/doc/03-lineamientos-generales.html">03 Lineamientos generales</a></li>
+        
+            
+            <li data-order=""><a href="/doc/02-introduccion.html">02 Introduccion</a></li>
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+    
+        
+        
+
+        
+            
+                <li class="nav-header">Posts</li>
+            
+            <li data-order=""><a href="/post/01-introduccion.html">01 Introduccion</a></li>
+        
+    
+<!-- List additional links. It is recommended to add a divider
+    e.g. <li class="divider"></li> first to break up the content. -->
+</ul>
+
+                    </div>
+
+                    <div id="content" class="col-sm-10">
+                        <div class="page-header">
+    <h2>Configuración de Red. El caso particular de Debian
+        
+    </h2>
+</div>
+
+<h2 id="configuración-de-red-en-gnulinux-el-caso-particular-de-debian">Configuración de Red en GNU/Linux: El caso particular de Debian</h2>
+<p>La configuración de Red en Debian se realiza por medio del fichero <code class="highlighter-rouge">/etc/network/interfaces</code></p>
+
+<p>No basta con aprenderse de memoria este fichero (Algo que es lo deseable, después de todo, es una de las cosas más importante a realizar en su trabajo). Debe comprenderlo bien. Debe entender que hace cada cosa. A larga, debería ser capaz de reconocer posibles errores con este fichero de un solo vistazo.</p>
+
+<p>Esta es la configuración mínima y funcional para este fichero. Lo que hace es configurar la interfaz <code class="highlighter-rouge">eth0</code> con la IP <code class="highlighter-rouge">192.168.2.5/24</code>. Note como <code class="highlighter-rouge">/24</code> se convierte en <code class="highlighter-rouge">255.255.255.0</code> en la siguiente configuración</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+ address 192.168.2.5
+ netmask 255.255.255.0
+ gateway 192.168.2.1
+
+</code></pre>
+</div>
+
+<p>Las opciones del fichero tienen se explican de la siguiente forma:</p>
+
+<dl>
+  <dt>address</dt>
+  <dd>Dirección IP asignada al equipo</dd>
+  <dt>netmask</dt>
+  <dd>Mascára de red. Lo más común es que sea 255.255.255.0</dd>
+  <dt>gateway</dt>
+  <dd>Es el gateway, o puerta de enlace</dd>
+</dl>
+
+<p>Después de eso, es común que se le pida configurar <code class="highlighter-rouge">broadcast</code> e incluso <code class="highlighter-rouge">network</code>. Estos son aditamentos innecesarios cuando no se necesita cambiarlos de sus valores por defecto, pero es válido</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+ address 192.168.2.5
+ gateway 192.168.2.1
+ netmask 255.255.255.0
+ network 192.168.2.0
+ broadcast 192.168.2.255
+
+</code></pre>
+</div>
+
+<p>A continuación, tiene la forma por defecto que el fichero de configuración tiene actualmente en Debian Jessie. Note como lo único que se ha agregado son los comentarios, que empiezan por <code class="highlighter-rouge">#</code></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># This file describes the network interfaces available on your system</span>
+<span class="c"># and how to activate them. For more information, see interfaces(5).</span>
+
+<span class="c"># The loopback network interface</span>
+auto lo
+iface lo inet loopback
+
+<span class="c"># The primary network interface</span>
+auto eth0
+iface eth0 inet static
+ address 192.168.2.5
+ gateway 192.168.2.1
+ netmask 255.255.255.0
+ network 192.168.2.0
+ broadcast 192.168.2.255
+
+ <span class="c"># post-up  ethtool -K eth0 tx off</span>
+
+<span class="c">#</span>
+<span class="c"># The commented out line above will disable TCP checksumming which</span>
+<span class="c"># might resolve problems for some users.  It is disabled by default</span>
+<span class="c">#</span>
+
+</code></pre>
+</div>
+
+<h3 id="la-interfaz-de-red">La interfaz de red</h3>
+<p>La interfaz de red suele llamarse <code class="highlighter-rouge">eth0</code> hasta Debian Jessie. Desde Debian «siguiente» en adelante, el nombre será diferente. La más probable es que se llame <code class="highlighter-rouge">enp1s0</code>, pero la convención que usa el sistema para asignar el nombre se basa en el hardware, así que tendrá que enterarse de su nombre mediante el comando <code class="highlighter-rouge">ip</code></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ip addr show
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp1s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:16:3e:4c:10:61 brd ff:ff:ff:ff:ff:ff
+    inet 10.20.20.5/27 brd 192.168.2.31 scope global enp1s0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::216:3eff:fe4c:1061/64 scope link 
+       valid_lft forever preferred_lft forever
+</code></pre>
+</div>
+
+
+<ul>
+
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+        
+            
+            
+            <a href="/docs/introduccion-redes-wan.html" class="prev">Previo: Introducción a su "Enlace"</a>
+        
+        
+            
+            <span class="next disabled">Siguiente</span>
+        
+    
+
+
+
+                    </div>
+                
+            </div>
+
+            
+
+            <div class="row">
+                <div id="footer" class="col-sm-12">
+                    Documentation for <a href="https://github.com/VTacius/introduccion-redes">Guía de Administrador de Sistemas</a>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function orderNav() {
+                var list,
+                    section,
+                    header,
+                    sections = [],
+                    lists = {},
+                    headers = {};
+
+                var navUl = document.querySelectorAll('#navigation ul')[0],
+                    navLis = document.querySelectorAll('#navigation ul li');
+
+                if (!navUl) return;
+
+                for (var i = 0; i < navLis.length; i++) {
+                    var order, li = navLis[i];
+
+                    if (li.classList.contains('nav-header')) {
+                        section = li.textContent || li.innerText;
+                        sections.push(section);
+                        headers[section] = li;
+                        continue;
+                    }
+
+                    if (!lists[section]) {
+                        lists[section] = [];
+                    }
+
+                    order = parseFloat(li.getAttribute('data-order'))
+                    lists[section].push([order, li]);
+                }
+
+                for (var i = 0; i < sections.length; i++) {
+                    section = sections[i];
+                    list = lists[section].sort(function(a, b) {
+                        return a[0] - b[0];
+                    });
+
+                    if (header = headers[section]) {
+                        navUl.appendChild(header);
+                    }
+                    for (var j = 0; j < list.length; j++) {
+                        navUl.appendChild(list[j][1]);
+                    }
+                }
+            }
+
+            if (document.querySelectorAll) orderNav();
+        </script>
+        
+    </body>
+</html>
