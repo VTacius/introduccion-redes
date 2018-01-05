@@ -2,7 +2,7 @@
 layout: doc
 category: doc
 title: Introducción a su "Enlace"
-orden: 3
+orden: 2
 ---
 
 Cuando hablamos del "Enlace", nos estamos refiriendo a cualquiera que sea el método que usamos para comuinicar su establecimiento con la Central. Este usualmente debe ser contratado con un proveedor externo ajeno a Central.

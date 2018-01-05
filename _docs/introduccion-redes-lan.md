@@ -2,7 +2,7 @@
 layout: doc
 category: doc
 title: Introducción a Redes de Área Local
-orden: 2
+orden: 1
 ---
 Red de Area Local se refiere a todas las computadoras que tiene a su cargo, siempre y cuando estén conectadas por medio de un switch y con una configuración de red adecuada. Cada término en esta frase va a ser explicada en el resto de todo este manual, así que tengalo en mente para que se de cuenta lo simple que puede ser.
 
@@ -33,7 +33,7 @@ Haga un esfuerzo por dominar todos los conceptos de este apartado. Si algo sigue
 
 Una ***Dirección IP***  consiste en cuatro número a los que llamamos octetos, unidos mediante tres puntos entre ellos. A continuación, un ejemplo de `IP` bastante común en nuestras redes.
 
-![Dirección IP](/contenido/01 - Direccion IP.png)
+![Dirección IP]({{site.baseurl}}/contenido/01 - Direccion IP.png)
 
 Por costumbre y comodidas, solemos referirnos a la ***dirección IP*** simplemente como **IP** 
 
@@ -43,11 +43,11 @@ Una IP por si misma no basta para configurar la red en un equipo. Una configurac
 
 La `mascara de red` puede expresarse de dos formas. Por un lado, la `máscara de red`, al igual que la `dirección IP`, esta compuesta por cuatro octetos separados por un punto. **Esta es la forma en que la máscara de red suele ser configurada en los archivos u otras partes**. En este caso, lo común es que los primeros tres octetos sean `255` y el último sea cero. No es común que la máscara tenga otra forma en nuestras redes.
 
-![Máscara de Red](/contenido/02 - Mascara de Red.png)
+![Máscara de Red]({{site.baseurl}}/contenido/02 - Mascara de Red.png)
 
 Por otra parte, es común encontrar la máscara de red acompañando a la dirección IP de la siguiente forma.
 
-![Dirección IP](/contenido/03 - IP completa.png)
+![Dirección IP]({{site.baseurl}}/contenido/03 - IP completa.png)
 
 En este caso, la máscara es el número que sigue después de la barra inclinada. Se lee ***pleca 24***, y es la forma más usual con la que alguien le podría hablar de una IP.
 
@@ -57,7 +57,7 @@ El gateway de la configuración es común a todos los equipos. Es una IP que ide
 
 Por ejemplo, las siguientes dos IP son gateway válidos y comunes para nuestra configuración de red.
 
-![Gateway](/contenido/04 - Gateway.png)
+![Gateway]({{site.baseurl}}/contenido/04 - Gateway.png)
 
 Es decir, si alguién le dice que la IP es **192.168.2.5/24**, la IP es **192.168.2.5** y su máscara de red es **255.255.255.0**
 

@@ -9,15 +9,15 @@
         <meta name="description" content="Guía de integración de conocimientos básicos sobre administración de redes en GNU/Linux">
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/syntax.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/introduccion-redes/css/syntax.css">
+        <link rel="stylesheet" href="/introduccion-redes/css/main.css">
     </head>
     <body>
 
         <div class="container">
             <div class="row">
                 <div id="header" class="col-sm-12">
-                    <h4><a class="brand" href="/">Guía de Administrador de Sistemas</a>
+                    <h4><a class="brand" href="/introduccion-redes/">Guía de Administrador de Sistemas</a>
     <small>Guía de integración de conocimientos básicos sobre administración de redes en GNU/Linux</small>
 </h4>
 
@@ -29,48 +29,18 @@
                 
                     <div id="navigation" class="col-sm-2">
                         <ul class="nav nav-list">
-    <li><a href="/">Home</a></li>
+    <li><a href="/introduccion-redes/">Introducción</a></li>
+    <li class="divider"></li>
     
-        
-        
-
-        
-            
-                <li class="nav-header">Documentation</li>
-            
-            <li data-order=""><a href="/doc/03-lineamientos-generales.html">03 Lineamientos generales</a></li>
-        
-            
-            <li data-order=""><a href="/doc/02-introduccion.html">02 Introduccion</a></li>
-        
     
-        
-        
-
-        
+    <li><a href="/introduccion-redes//docs/introduccion-redes-lan.html">Introducción a Redes de Área Local</a></li>        
     
-        
-        
-
-        
+    <li><a href="/introduccion-redes//docs/introduccion-redes-wan.html">Introducción a su "Enlace"</a></li>        
     
-        
-        
-
-        
+    <li><a href="/introduccion-redes//docs/configuracion-red-debian.html">Configuración de Red en GNU/Linux: El caso de Debian</a></li>        
     
-        
-        
-
-        
-            
-                <li class="nav-header">Posts</li>
-            
-            <li data-order=""><a href="/post/01-introduccion.html">01 Introduccion</a></li>
-        
+    <li><a href="/introduccion-redes//docs/introduccion-firewall.html">Introducción al Firewall</a></li>        
     
-<!-- List additional links. It is recommended to add a divider
-    e.g. <li class="divider"></li> first to break up the content. -->
 </ul>
 
                     </div>
@@ -111,7 +81,7 @@
 
 <p>Una <strong><em>Dirección IP</em></strong>  consiste en cuatro número a los que llamamos octetos, unidos mediante tres puntos entre ellos. A continuación, un ejemplo de <code class="highlighter-rouge">IP</code> bastante común en nuestras redes.</p>
 
-<p><img src="/contenido/01 - Direccion IP.png" alt="Dirección IP" /></p>
+<p><img src="/introduccion-redes/contenido/01 - Direccion IP.png" alt="Dirección IP" /></p>
 
 <p>Por costumbre y comodidas, solemos referirnos a la <strong><em>dirección IP</em></strong> simplemente como <strong>IP</strong></p>
 
@@ -121,11 +91,11 @@
 
 <p>La <code class="highlighter-rouge">mascara de red</code> puede expresarse de dos formas. Por un lado, la <code class="highlighter-rouge">máscara de red</code>, al igual que la <code class="highlighter-rouge">dirección IP</code>, esta compuesta por cuatro octetos separados por un punto. <strong>Esta es la forma en que la máscara de red suele ser configurada en los archivos u otras partes</strong>. En este caso, lo común es que los primeros tres octetos sean <code class="highlighter-rouge">255</code> y el último sea cero. No es común que la máscara tenga otra forma en nuestras redes.</p>
 
-<p><img src="/contenido/02 - Mascara de Red.png" alt="Máscara de Red" /></p>
+<p><img src="/introduccion-redes/contenido/02 - Mascara de Red.png" alt="Máscara de Red" /></p>
 
 <p>Por otra parte, es común encontrar la máscara de red acompañando a la dirección IP de la siguiente forma.</p>
 
-<p><img src="/contenido/03 - IP completa.png" alt="Dirección IP" /></p>
+<p><img src="/introduccion-redes/contenido/03 - IP completa.png" alt="Dirección IP" /></p>
 
 <p>En este caso, la máscara es el número que sigue después de la barra inclinada. Se lee <strong><em>pleca 24</em></strong>, y es la forma más usual con la que alguien le podría hablar de una IP.</p>
 
@@ -136,7 +106,7 @@
 
 <p>Por ejemplo, las siguientes dos IP son gateway válidos y comunes para nuestra configuración de red.</p>
 
-<p><img src="/contenido/04 - Gateway.png" alt="Gateway" /></p>
+<p><img src="/introduccion-redes/contenido/04 - Gateway.png" alt="Gateway" /></p>
 
 <p>Es decir, si alguién le dice que la IP es <strong>192.168.2.5/24</strong>, la IP es <strong>192.168.2.5</strong> y su máscara de red es <strong>255.255.255.0</strong></p>
 
@@ -166,19 +136,18 @@
 
     
     
+        
+            
+            <span class="prev disabled">Previo</span>
+        
+        
+            
+            
+            <a href="/introduccion-redes/docs/introduccion-redes-wan.html" class="next">Siguiente: Introducción a su "Enlace" </a>
+        
+    
 
     
-    
-        
-            
-            
-            <a href="/docs/introduccion.html" class="prev">Previo: Introducción a la presente guía</a>
-        
-        
-            
-            
-            <a href="/docs/introduccion-redes-wan.html" class="next">Siguiente: Introducción a su "Enlace" </a>
-        
     
 
     

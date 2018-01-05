@@ -2,7 +2,7 @@
 layout: doc
 category: doc
 title: "Configuración de Red en GNU/Linux: El caso de Debian"
-orden: 4
+orden: 3
 ---
 
 Ahora que ya esta familiarizado con los términos más básicos, es hora de ver como los va a usar para realizar una `configuración de red`. 

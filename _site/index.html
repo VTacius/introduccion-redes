@@ -5,19 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
 
-        <title>Guía de Administrador de Sistemas : Jekyll Docs Template</title>
+        <title>Guía de Administrador de Sistemas : Introducción a la presente guía</title>
         <meta name="description" content="Guía de integración de conocimientos básicos sobre administración de redes en GNU/Linux">
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/syntax.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/introduccion-redes/css/syntax.css">
+        <link rel="stylesheet" href="/introduccion-redes/css/main.css">
     </head>
     <body>
 
         <div class="container">
             <div class="row">
                 <div id="header" class="col-sm-12">
-                    <h4><a class="brand" href="/">Guía de Administrador de Sistemas</a>
+                    <h4><a class="brand" href="/introduccion-redes/">Guía de Administrador de Sistemas</a>
     <small>Guía de integración de conocimientos básicos sobre administración de redes en GNU/Linux</small>
 </h4>
 
@@ -29,67 +29,43 @@
                 
                     <div id="navigation" class="col-sm-2">
                         <ul class="nav nav-list">
-    <li><a href="/">Home</a></li>
+    <li><a href="/introduccion-redes/">Introducción</a></li>
+    <li class="divider"></li>
     
-        
-        
-
-        
-            
-                <li class="nav-header">Documentation</li>
-            
-            <li data-order=""><a href="/doc/03-lineamientos-generales.html">03 Lineamientos generales</a></li>
-        
-            
-            <li data-order=""><a href="/doc/02-introduccion.html">02 Introduccion</a></li>
-        
     
-        
-        
-
-        
+    <li><a href="/introduccion-redes//docs/introduccion-redes-lan.html">Introducción a Redes de Área Local</a></li>        
     
-        
-        
-
-        
+    <li><a href="/introduccion-redes//docs/introduccion-redes-wan.html">Introducción a su "Enlace"</a></li>        
     
-        
-        
-
-        
+    <li><a href="/introduccion-redes//docs/configuracion-red-debian.html">Configuración de Red en GNU/Linux: El caso de Debian</a></li>        
     
-        
-        
-
-        
-            
-                <li class="nav-header">Posts</li>
-            
-            <li data-order=""><a href="/post/01-introduccion.html">01 Introduccion</a></li>
-        
+    <li><a href="/introduccion-redes//docs/introduccion-firewall.html">Introducción al Firewall</a></li>        
     
-<!-- List additional links. It is recommended to add a divider
-    e.g. <li class="divider"></li> first to break up the content. -->
 </ul>
 
                     </div>
 
                     <div id="content" class="col-sm-10">
-                        <h3 id="get-started">Get Started</h3>
+                        <h1 id="introducción-a-la-presente-guía">Introducción a la presente guía</h1>
+<p>Esta guía es nuestra respuesta frente a la excusa de que “nadie nace aprendido”. Su objetivo es proveerle de todos los conocimientos básicos (Que no fundamentales) que necesite para desenvolverse en un ambiente de red en GNU/Linux.</p>
 
-<p>Start by <a href="http://jekyllrb.com/docs/posts/">creating a new post</a> one of the categories listed in <code class="highlighter-rouge">_config.yml</code>. It will appear in the navigation on the left once recompiled. Or use the supplied script to make creating pages easier:</p>
+<p>Estamos enfocados profundamente en IPv4. Podría no tener necesidad de esta guía si es que su experiencia en el campo es amplia, o si ha tenido la suerte de educarse acádemicamente en el tema.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ruby bin/jekyll-page <span class="s2">"Some Page Title"</span> 
-</code></pre>
-</div>
+<p>Considere que esta guía agrega la muletilla <strong><em>para efectos prácticos</em></strong> en todo su contenido. Todos los conceptos acá vertidos son <strong><em>para efectos prácticos</em></strong>. No se profundiza en ellos, no hay una explicación sobre sus significados fundamentales. Esta trabajo no tiene aspiraciones académicas de ningún tipo: Nuestra aspiración es crear una base de conocimientos que deben ser comunes a todos los informáticos que tienen a su cargo la red.</p>
 
-<h4 id="dont-forget">Don’t Forget</h4>
+<h2 id="manténgase-positivo">Manténgase positivo</h2>
+<p>No importa cuan díficil se le haga al inicio, con el tiempo debería ser capaz de dominar todos los temas de esta guía</p>
 
+<h2 id="manténgase-humilde">Manténgase humilde</h2>
+<p>Aún cuando domine todos lo temas de esta guía, habrá muchas cosas que le faltará aprender. Esta guía no lo convertirá en un experto, sino que se limitará a formarle</p>
+
+<h2 id="el-lenguaje-es-importante">El lenguaje es importante.</h2>
+<p>Esta es posiblemente el mejor consejo que vamos a darle. La razón de la guía es que usted entienda el lenguaje técnico relacionado con esta área de trabajo. Lenguaje técnico es toda aquella jerga que tiene por objeto permitir una comunicación precisa y concisa en una área de trabajo. 
+Por lo tanto, hágase un favor a usted mismo y a nosotros: Entre otras cosas:</p>
 <ul>
-  <li>Add your own content to this page (i.e. <code class="highlighter-rouge">index.md</code>) and change the <code class="highlighter-rouge">title</code></li>
-  <li>Change <code class="highlighter-rouge">title</code> and <code class="highlighter-rouge">subtitle</code> defined in <code class="highlighter-rouge">config.yml</code> for your site</li>
-  <li>Set the <code class="highlighter-rouge">baseurl</code> in <code class="highlighter-rouge">_config.yml</code> for your repo if deploying to GitHub pages</li>
+  <li><strong>No invente conceptos</strong></li>
+  <li><strong>No use sinóminos que haya escuchado “por allí”</strong>. Especialmente, no intente hablar en inglés.</li>
+  <li><strong>No invente conceptos</strong> Nunca se insiste lo suficiente. Aunque parezca exagerado, el mayor problema a la hora de resolver un problema es la forma en que usted nos comunica dicho problema.</li>
 </ul>
 
                     </div>
